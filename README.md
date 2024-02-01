@@ -1,14 +1,9 @@
-Tables And Stored Procedures Required For the Project
-
-#######  Query For Creating Tables  #########
-
-
+[Queries for creating tables and stored procedures.txt](https://github.com/ar-faisal/User-Profile-ADO.NET/files/14124658/Queries.for.creating.tables.and.stored.procedures.txt)[Uplo#######  Query For Creating Tables  #########
 1>>>
 CREATE TABLE Roles (
     RoleId INT PRIMARY KEY,
     RoleName NVARCHAR(50) NOT NULL
 );
-
 
 2>>>
 CREATE TABLE Users (
@@ -31,8 +26,6 @@ CREATE TABLE Users (
 
 
 #######  Query For adding stored procedure  #########
-
-
 1>>>
 CREATE PROCEDURE AddUser
     @FirstName NVARCHAR(100),
@@ -76,8 +69,6 @@ BEGIN
     );
 END;
 
-
-
 2>>>
 CREATE PROCEDURE AuthenticateUser
     @Email NVARCHAR(255),
@@ -95,30 +86,29 @@ END;
 3>>>
 CREATE PROCEDURE UpdateUser
     @userId INT,
-    @firstname NVARCHAR(255),
-    @lastname NVARCHAR(255),    
-    @Phonenumber NVARCHAR(20),
-    @gender NVARCHAR(10),
-    @state NVARCHAR(255),
-    @city NVARCHAR(255),
-    @imageUrl NVARCHAR(255),
-    @resumeUrl NVARCHAR(255)
+    @firstname NVARCHAR(255) = NULL,
+    @lastname NVARCHAR(255) = NULL,    
+    @Phonenumber NVARCHAR(20) = NULL,
+    @gender NVARCHAR(10) = NULL,
+    @state NVARCHAR(255) = NULL,
+    @city NVARCHAR(255) = NULL,
+    @imageUrl NVARCHAR(255) = NULL,
+    @resumeUrl NVARCHAR(255) = NULL
 AS
 BEGIN
     UPDATE Users
     SET
-        FirstName = @firstname,
-        LastName = @lastname,
-        PhoneNumber = @Phonenumber,
-        Gender = @gender,
-        State = @state,
-        City = @city,
-        ImageUrl = @imageUrl,
-        ResumeUrl = @resumeUrl
+        FirstName = ISNULL(@firstname, FirstName),
+        LastName = ISNULL(@lastname, LastName),
+        PhoneNumber = ISNULL(@Phonenumber, PhoneNumber),
+        Gender = ISNULL(@gender, Gender),
+        State = ISNULL(@state, State),
+        City = ISNULL(@city, City),
+        ImageUrl = ISNULL(@imageUrl, ImageUrl),
+        ResumeUrl = ISNULL(@resumeUrl, ResumeUrl)
     WHERE
         UserId = @userId;
-    
-END
+END;
 
 
 
@@ -131,3 +121,5 @@ BEGIN
     WHERE UserId = @userId;
 END
 
+
+5>>ading Queries for creating tables and stored procedures.txt…]()
