@@ -1,4 +1,7 @@
-[Queries for creating tables and stored procedures.txt](https://github.com/ar-faisal/User-Profile-ADO.NET/files/14124658/Queries.for.creating.tables.and.stored.procedures.txt)[Uplo#######  Query For Creating Tables  #########
+[Queries for creating tables and stored procedures.txt](https://github.com/ar-faisal/User-Profile-ADO.NET/files/14124658/Queries.for.creating.tables.and.stored.procedures.txt)
+
+
+[Uplo#######  Query For Creating Tables  #########
 1>>>
 CREATE TABLE Roles (
     RoleId INT PRIMARY KEY,
