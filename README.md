@@ -1,10 +1,14 @@
 Tables And Stored Procedures Required For the Project
+
 #######  Query For Creating Tables  #########
+
+
 1>>>
 CREATE TABLE Roles (
     RoleId INT PRIMARY KEY,
     RoleName NVARCHAR(50) NOT NULL
 );
+
 
 2>>>
 CREATE TABLE Users (
@@ -27,6 +31,8 @@ CREATE TABLE Users (
 
 
 #######  Query For adding stored procedure  #########
+
+
 1>>>
 CREATE PROCEDURE AddUser
     @FirstName NVARCHAR(100),
@@ -70,6 +76,8 @@ BEGIN
     );
 END;
 
+
+
 2>>>
 CREATE PROCEDURE AuthenticateUser
     @Email NVARCHAR(255),
@@ -111,6 +119,7 @@ BEGIN
         UserId = @userId;
     
 END
+
 
 
 4>>>
