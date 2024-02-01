@@ -1,0 +1,57 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" id="applicationName" href="/">User Profile</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+
+
+            <ul class="navbar-nav me-auto">
+
+                @if (Session["UserId"] != null && Session["RoleName"] != null)
+                {
+                    
+                    if (Session["RoleName"].ToString().Equals("admin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/DeleteUsers">Delete Users</a>
+                        </li>
+                    }
+                }
+
+
+            </ul>
+
+
+            <ul class="navbar-nav">
+                @if (Session["UserId"] != null && Session["RoleName"] != null)
+                {
+                    <li class="nav-item d-none d-lg-block">
+                        <span class="nav-link">Welcome, @Session["UserName"]</span>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/Logout">Logout</a>
+                    </li>
+                }
+
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/Index">Register</a>
+                    </li>
+                }
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

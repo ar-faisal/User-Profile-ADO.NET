@@ -1,0 +1,107 @@
+﻿@model ADO.NET.Domain.Entities.User
+
+@using (Html.BeginForm("Delete", "Home", new { id = Model.UserId }, FormMethod.Post, new { @class = "container mt-5" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Delete User</h5>
+                </div>
+                <div class="card-body">
+                    @Html.HiddenFor(model => model.UserId)
+                    @Html.HiddenFor(model => model.ResumeUrl)
+                    @Html.HiddenFor(model => model.ImageUrl)
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>@Html.DisplayNameFor(model => model.FirstName):</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.FirstName)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>@Html.DisplayNameFor(model => model.LastName):</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.LastName)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>@Html.DisplayNameFor(model => model.PhoneNumber):</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.PhoneNumber)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>@Html.DisplayNameFor(model => model.Gender):</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.Gender)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>@Html.DisplayNameFor(model => model.State):</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.State)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>@Html.DisplayNameFor(model => model.City):</strong>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.City)
+                        </div>
+                    </div>
+
+                    <!-- Add similar rows for other properties -->
+
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            @Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-secondary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <p><strong>Profile Picture:</strong></p>
+                            <img src="@Model.ImageUrl" class="img-fluid" alt="No Image Available" style="border-radius: 5px; border: 1px solid #bbb9b9; height: 200px; width: 300px;" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    @if (!string.IsNullOrEmpty(Model.ResumeUrl))
+                    {
+                        <p><strong>Resume:</strong></p>
+                        <a href="@Model.ResumeUrl" target="_blank" class="btn btn-info">View Resume</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
